@@ -1,6 +1,8 @@
 @import url(./basic-styles.css);
 
-/* lesson styles */
-
 .container {
+  display: grid;
+  border: 5px solid #333;
+  gap: 20px;
+  grid-template-columns: 1fr repeat(3, 2fr);
 }
