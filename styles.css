@@ -38,12 +38,21 @@
 }
 
 .posts {
-  margin-bottom: 80px;
+  margin-bottom: 96px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1 fr;
 }
 
 .post > a {
   position: relative;
   color: var(--common-white);
+}
+
+.post-img {
+  object-fit: cover;
+  height: 172px;
+  border-radius: 16px;
 }
 
 .overlay {
@@ -56,19 +65,88 @@
   width: 100%;
 }
 
+.blog {
+  margin-bottom: 96px;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1 fr;
+}
+
+.blog-link {
+  display: grid;
+  gap: 20px;
+  color: var(--common-black);
+}
+
+.longread {
+  margin-bottom: 96px;
+  display: grid;
+  gap: 96px;
+  grid-template-columns: 1 fr;
+}
+
+.video {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .posts {
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post:first-child {
+    height: auto;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+
+  .post-img {
+    height: 100%;
+  }
+
+  .blog {
+    gap: 36px;
+  }
+
+  .blog-link {
+    gap: 24px;
+    grid-template-columns: 264px 1fr;
+  }
+}
+
 @media (min-width: 1440px) {
   .overlay {
     padding: 24px 48px;
   }
+
+  .longread {
+    display: grid;
+    grid-template-areas:
+      "b b s"
+      "b b s"
+      "b b v"
+      "b b .";
+    gap: 24px;
+  }
+
+  .blog {
+    grid-area: b;
+  }
+  .social {
+    grid-area: s;
+  }
+  .video {
+    grid-area: v;
+  }
+  .socials {
+    margin-top: 60px;
 }
 
 .post-title {
   color: var(--common-white);
   font-family: var(--common-font);
-}
-
-.blog-link {
-  color: var(--common-black);
 }
 
 .blog-title {
@@ -85,11 +163,23 @@
   letter-spacing: 0.5px;
 }
 
+.socials {
+  display: grid;
+  margin-bottom: 96px;
+}
+
+.socials-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 8px;
+}
+
 .socials-title {
   color: var(--grey, #2c2c2c);
   font-family: var(--common-font);
   margin-bottom: 24px;
 }
+
 .social-link {
   padding: 8px;
   color: var(--common-black, #2f2f37);
@@ -98,6 +188,10 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 .socials-item:nth-child(1) .social-link {
